@@ -9,14 +9,14 @@ const App = ()=>{
 
   const [user,setUser] = useState(null)
   const authData = useContext(AuthContext)
-  if(authData){
-  console.log(authData.employees);
-  }
+  // if(authData){
+  // console.log(authData.employees);
+  // }
 
   const handleLogin = (email,password)=>{
      if (email == "admin@me.com" && password == "123") {
       setUser('admin')
-     }else if (email == "user@me.com" && password == "123") {
+     }else if (authData ) {
       setUser('employee')
      }
      else{
