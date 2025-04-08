@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
@@ -42,10 +43,10 @@ const App = () => {
 
 
   return (
-    <>
+    <BrowserRouter>
       {!user ? <Login handleLogin={handleLogin} /> : ''}
       {user == 'admin' ? <AdminDashboard changeUser={setUser} /> : (user == 'employee' ? <EmployeeDashboard changeUser={setUser} data={loggedInUserData} /> : null) }
-    </>
+    </BrowserRouter>
   )
 }
 

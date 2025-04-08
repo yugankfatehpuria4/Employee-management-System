@@ -1,40 +1,75 @@
-import React, { useState } from "react";
-const Login = ({handleLogin}) => {
+import React, { useState } from 'react';
+import '/Users/yugankfatehpuria/Desktop/EMS/src/Login.css';
+import bgImage from '/Users/yugankfatehpuria/Desktop/EMS/IMG2.webp';
+import { FaUserCircle, FaLock, FaShieldAlt } from 'react-icons/fa';
 
-    let [email, setemail] = useState('')
-    let [password, setpassword] = useState('')
+const Login = ({ handleLogin }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
-    const onSubmitte = (e) => {
-        e.preventDefault()
-        handleLogin(email,password)
-        setemail("")
-        setpassword("")
-    }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleLogin(email, password, rememberMe);
+    setEmail('');
+    setPassword('');
+  };
 
-    return (
-        <div className="flex h-screen w-screen items-center justify-center">
-            <div className="border-2 rounded-xl border-emerald-600 p-20">
-                <form onSubmit={(e) => {
-                    onSubmitte(e)
-                }} className="flex flex-col items-center justify-center">
-                    <input
-                        value={email}
-                        onChange={(e) => {
-                            setemail(e.target.value)
-                        }}
-                        className="border-2 border-emerald-600 rounded-full px-3 py-5 text-xl outline-none bg-transparent  placeholder:text-gray-400"
-                        required type="email" placeholder="enter your email" />
-                    <input
-                        value={password}
-                        onChange={(e) => {
-                            setpassword(e.target.value)
-                        }}
-                        className="border-2 border-emerald-600 rounded-full px-3 py-5 text-xl outline-none bg-transparent mt-3 placeholder:text-gray-400"
-                        required type="password" placeholder="enter password" />
-                    <button className="border-none mt-5 bg-emerald-600 rounded-full px-3 py-5 text-xl text-white outline-none  placeholder:text-white">Log in</button>
-                </form>
-            </div>
+  return (
+    <div className="login-container" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="holographic-globe">
+        <div className="globe-effect"></div>
+      </div>
+      <div className="circuit-lines"></div>
+      <div className="login-box">
+        <div className="welcome-section">
+          <FaUserCircle className="user-icon" />
+          <h2 className="login-title">Welcome !</h2>
+          <p className="login-subtitle">Admin Access Portal</p>
         </div>
-    )
-}
-export default Login
+        
+        <form onSubmit={submitHandler} className="login-form">
+          <div className="input-group">
+            <FaUserCircle className="input-icon" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="login-input"
+              type="email"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="input-group">
+            <FaLock className="input-icon" />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="login-input"
+              type="password"
+              placeholder="Enter password"
+            />
+          </div>
+          <div className="form-footer">
+            <label className="remember-me">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
+              Remember me
+            </label>
+            <a href="#" className="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" className="login-button">
+            <FaShieldAlt className="button-icon" />
+            Secure Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

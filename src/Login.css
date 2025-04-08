@@ -1,0 +1,335 @@
+/* Login.css */
+
+/* Background with parallax effect */
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(10px);
+    z-index: 1;
+  }
+  
+  /* Circuit Lines Animation */
+  .circuit-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px) 0 0 / 50px 50px,
+      linear-gradient(0deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px) 0 0 / 50px 50px;
+    animation: circuitMove 20s linear infinite;
+    z-index: 0;
+  }
+  
+  /* Holographic Globe Effect */
+  .holographic-globe {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    z-index: 1;
+  }
+  
+  .globe-effect {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.2), transparent 70%);
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 20s linear infinite;
+  }
+  
+  .globe-effect::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="rgba(0,255,255,0.2)" stroke-width="0.5" fill="none"/></svg>') repeat;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .globe-effect::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(0,255,255,0.1) 0%, transparent 70%);
+    filter: blur(10px);
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  
+  /* Glassmorphism effect */
+  .login-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+  }
+  
+  .welcome-section {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .welcome-section::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+  }
+  
+  .user-icon {
+    font-size: 64px;
+    color: #00ff9d;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
+    animation: pulse 2s infinite;
+  }
+  
+  /* Title Animation */
+  .login-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+  }
+  
+  .login-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Input Styling */
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ff9d;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: 2px solid rgba(0, 255, 157, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+  }
+  
+  .login-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .login-input:focus {
+    border-color: #00ff9d;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #00ff9d;
+  }
+  
+  .forgot-password {
+    color: #00ff9d;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+    position: relative;
+  }
+  
+  .forgot-password::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00ff9d;
+    transition: width 0.3s;
+  }
+  
+  .forgot-password:hover::after {
+    width: 100%;
+  }
+  
+  .forgot-password:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  }
+  
+  /* Button Styling with Animation */
+  .login-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00ff9d, #00b8ff);
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .button-icon {
+    font-size: 18px;
+  }
+  
+  .login-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .login-button:hover::before {
+    left: 100%;
+  }
+  
+  .login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 157, 0.4);
+  }
+  
+  /* Animations */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes circuitMove {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 50px 50px;
+    }
+  }
