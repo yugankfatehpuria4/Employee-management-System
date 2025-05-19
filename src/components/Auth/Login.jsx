@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '/Users/yugankfatehpuria/Desktop/EMS/src/Login.css';
-import bgImage from '/Users/yugankfatehpuria/Desktop/EMS/IMG2.webp';
+import '../../Login.css';
+import bgImage from '../../../IMG2.webp';
 import { FaUserCircle, FaLock, FaShieldAlt } from 'react-icons/fa';
 
 const Login = ({ handleLogin }) => {
